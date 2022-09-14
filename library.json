@@ -1,0 +1,22 @@
+{
+  "name": "PROGMEM Assert",
+  "version": "1.0.0",
+  "description": "Assert for Arduino that saves RAM by storing assert strings in PROGMEM and prints to Serial. File name and line number are printed to Serial, and the built-in LED is flashed three times about every 2 seconds.",
+  "keywords": "assert PROGMEM debug",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/boothinator/ProgmemAssert.git"
+  },
+  "authors":
+  [
+    {
+      "name": "Joshua Booth",
+      "email": "boothin8or@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/boothinator/ProgmemAssert",
+  "frameworks": ["arduino"],
+  "platforms": "atmelavr"
+}
