@@ -1,7 +1,7 @@
 // Copyright (C) 2022  Joshua Booth
 // MIT License
 
-#include "pgmAssert.h"
+#include "progmemAssert.h"
 
 #ifndef NDEBUG
 

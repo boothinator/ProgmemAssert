@@ -9,7 +9,7 @@ Implementing a standard C assert eats up your RAM because it doesn't know anywhe
 To use, simply add the following lines to your code:
 
 ```C
-#include <pgmAssert.h>
+#include <progmemAssert.h>
 
 ...
 
