@@ -28,8 +28,9 @@ extern "C" {
  * Define this function in your code to respond when an assert fails.
  * Called after interrupts are disabled, but before the message is logged to serial.
  * 
+ * @return false to continue to the infinite loop. True to return control to the caller
  */
-extern void __pgmAssertCallback(PGM_P __file, int __lineno, PGM_P __sexp) __attribute__((weak));
+extern bool __pgmAssertCallback(PGM_P __file, int __lineno, PGM_P __sexp) __attribute__((weak));
 
 extern void __pgmAssert(PGM_P __file, int __lineno, PGM_P __sexp);
 

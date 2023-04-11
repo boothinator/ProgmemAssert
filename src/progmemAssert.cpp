@@ -17,7 +17,9 @@
 
 #include <Arduino.h>
 
-void __pgmAssertCallback(PGM_P __file, int __lineno, PGM_P __sexp) {}
+bool __pgmAssertCallback(PGM_P __file, int __lineno, PGM_P __sexp) {
+  return false;
+}
 
 void __pgmAssert(PGM_P __file, int __lineno, PGM_P __sexp) {
   
@@ -29,7 +31,10 @@ void __pgmAssert(PGM_P __file, int __lineno, PGM_P __sexp) {
 
   noInterrupts();
 
-  __pgmAssertCallback(__file, __lineno, __sexp);
+  if (__pgmAssertCallback(__file, __lineno, __sexp))
+  {
+    return;
+  }
 
   pinMode(LED_BUILTIN, OUTPUT);
 
