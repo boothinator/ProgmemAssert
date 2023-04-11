@@ -23,10 +23,6 @@ bool __pgmAssertCallback(PGM_P __file, int __lineno, PGM_P __sexp) {
 
 void __pgmAssert(PGM_P __file, int __lineno, PGM_P __sexp) {
   
-#if PGM_ASSERT_SERIAL_BEGIN
-  Serial.begin(PGM_ASSERT_BAUD);
-#endif
-
   // abort program execution.
 
   noInterrupts();
@@ -35,6 +31,10 @@ void __pgmAssert(PGM_P __file, int __lineno, PGM_P __sexp) {
   {
     return;
   }
+  
+#if PGM_ASSERT_SERIAL_BEGIN
+  Serial.begin(PGM_ASSERT_BAUD);
+#endif
 
   pinMode(LED_BUILTIN, OUTPUT);
 
