@@ -1,6 +1,6 @@
 {
   "name": "PROGMEMAssert",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Assert for Arduino that saves RAM by storing assert strings in PROGMEM and prints to Serial. File name and line number are printed to Serial, and the built-in LED is flashed three times about every 2 seconds.",
   "keywords": "assert PROGMEM debug",
   "repository":

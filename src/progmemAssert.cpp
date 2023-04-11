@@ -17,16 +17,24 @@
 
 #include <Arduino.h>
 
-void __pgmAssert(PGM_P __file,
-  int __lineno, PGM_P __sexp) {
+bool __pgmAssertCallback(PGM_P __file, int __lineno, PGM_P __sexp) {
+  return false;
+}
+
+void __pgmAssert(PGM_P __file, int __lineno, PGM_P __sexp) {
+  
+  // abort program execution.
+
+  noInterrupts();
+
+  if (__pgmAssertCallback(__file, __lineno, __sexp))
+  {
+    return;
+  }
   
 #if PGM_ASSERT_SERIAL_BEGIN
   Serial.begin(PGM_ASSERT_BAUD);
 #endif
-
-  // abort program execution.
-
-  noInterrupts();
 
   pinMode(LED_BUILTIN, OUTPUT);
 
