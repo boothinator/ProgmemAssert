@@ -17,8 +17,9 @@
 
 #include <Arduino.h>
 
-void __pgmAssert(PGM_P __file,
-  int __lineno, PGM_P __sexp) {
+void __pgmAssertCallback(PGM_P __file, int __lineno, PGM_P __sexp) {}
+
+void __pgmAssert(PGM_P __file, int __lineno, PGM_P __sexp) {
   
 #if PGM_ASSERT_SERIAL_BEGIN
   Serial.begin(PGM_ASSERT_BAUD);
@@ -27,6 +28,8 @@ void __pgmAssert(PGM_P __file,
   // abort program execution.
 
   noInterrupts();
+
+  __pgmAssertCallback(__file, __lineno, __sexp);
 
   pinMode(LED_BUILTIN, OUTPUT);
 

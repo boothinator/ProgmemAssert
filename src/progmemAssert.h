@@ -22,8 +22,16 @@
 extern "C" {
 #endif
 
-extern void __pgmAssert(PGM_P __file,
-		     int __lineno, PGM_P __sexp);
+/**
+ * @brief Called when assert fails
+ *
+ * Define this function in your code to respond when an assert fails.
+ * Called after interrupts are disabled, but before the message is logged to serial.
+ * 
+ */
+extern void __pgmAssertCallback(PGM_P __file, int __lineno, PGM_P __sexp) __attribute__((weak));
+
+extern void __pgmAssert(PGM_P __file, int __lineno, PGM_P __sexp);
 
 #define assert(e)	((e) ? (void)0 : __pgmAssert(PSTR(__FILE__), __LINE__, PSTR(#e)))
 
